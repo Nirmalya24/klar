@@ -5,12 +5,12 @@ import { useEffect, useMemo, useState } from "react";
 import { bucketLabels, streamItems } from "@/lib/data";
 import type { Lens } from "@/lib/types";
 
-const lenses: Array<{ id: Lens; label: string; color: string; icon: string }> = [
-  { id: "omnis", label: "Omnis", color: "text-slate-600", icon: "◉" },
-  { id: "opus", label: "Opus", color: "text-blue-500", icon: "◌" },
-  { id: "fiscus", label: "Fiscus", color: "text-emerald-500", icon: "◌" },
-  { id: "vita", label: "Vita", color: "text-violet-500", icon: "◌" },
-  { id: "systema", label: "Systema", color: "text-amber-500", icon: "◌" }
+const lenses: Array<{ id: Lens; label: string; color: string }> = [
+  { id: "omnis", label: "All", color: "text-slate-600" },
+  { id: "opus", label: "Work", color: "text-blue-500" },
+  { id: "fiscus", label: "Finance", color: "text-emerald-500" },
+  { id: "vita", label: "Life", color: "text-violet-500" },
+  { id: "systema", label: "System", color: "text-amber-500" }
 ];
 
 export default function KlarApp() {
@@ -44,13 +44,15 @@ export default function KlarApp() {
     <main className="min-h-screen p-8 md:p-14">
       <div className="mx-auto max-w-4xl space-y-8">
         <header className="space-y-4">
-          <h1 className="text-4xl font-light tracking-tight">Klar — Nagare Stream</h1>
+          <h1 className="text-4xl font-light tracking-tight">Klar</h1>
           <div className="flex flex-wrap gap-2">
             {lenses.map((entry) => {
               const active = lens === entry.id;
               return (
                 <button
                   key={entry.id}
+                  type="button"
+                  aria-pressed={active}
                   className={`rounded-full border px-4 py-2 text-sm transition ${
                     active ? "border-black/50 bg-white shadow-sm" : "border-black/10 bg-white/40"
                   }`}
@@ -59,7 +61,7 @@ export default function KlarApp() {
                     setSelectedId(null);
                   }}
                 >
-                  <span className={`${active ? entry.color : "text-slate-300"} mr-2`}>{entry.icon}</span>
+                  <span className={`${active ? entry.color : "text-slate-300"} mr-2`}>{active ? "◉" : "◌"}</span>
                   {entry.label}
                 </button>
               );
@@ -123,6 +125,7 @@ export default function KlarApp() {
           <h2 className="text-lg">Karakuri Engine (Agent Lab)</h2>
           <p className="text-sm text-slate-500">Prototype input for natural language workflow commands.</p>
           <input
+            suppressHydrationWarning
             className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 outline-none ring-black/20 focus:ring"
             placeholder='Try: "Extract all Q4 dates from my work emails"'
           />
@@ -147,6 +150,7 @@ export default function KlarApp() {
             >
               <input
                 autoFocus
+                suppressHydrationWarning
                 placeholder="Jump to Inbox, Projects, Agents, or Prisma lens…"
                 className="w-full border-none bg-transparent font-serif text-2xl outline-none"
               />

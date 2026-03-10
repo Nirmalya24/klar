@@ -6,7 +6,7 @@ Klar is a minimalist, AI-powered productivity concept focused on reducing digita
 
 This repository now includes an interactive Next.js prototype for:
 
-- Nagare Stream grouped by Hodie / Heri / Olim
+- Nagare Stream grouped by Today / Yesterday / Earlier
 - Prisma Lenses filtering
 - Zanshin Focus Mode inline expansion and dimming of non-selected items
 - Satori Briefing (mocked guidance)
@@ -16,11 +16,13 @@ This repository now includes an interactive Next.js prototype for:
 ## Run Locally
 
 ```bash
+nvm use
 npm install
 npm run dev
 ```
 
 Then open `http://localhost:3000`.
+This repo targets Node 24 LTS.
 
 ## Product Spec
 

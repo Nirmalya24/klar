@@ -49,7 +49,7 @@ export const streamItems: StreamItem[] = [
 ];
 
 export const bucketLabels = {
-  hodie: "Hodie",
-  heri: "Heri",
-  olim: "Olim"
+  hodie: "Today",
+  heri: "Yesterday",
+  olim: "Earlier"
 } as const;

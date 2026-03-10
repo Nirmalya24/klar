@@ -65,9 +65,9 @@ A single-column, chronological timeline of inbound communication and tasks.
 **Requirements**
 
 - Group items under elegant temporal dividers:
-  - **Hodie** (Today)
-  - **Heri** (Yesterday)
-  - **Olim** (Earlier)
+  - **Today**
+  - **Yesterday**
+  - **Earlier**
 - Support infinite scrolling (incremental rendering) for thousands of items.
 - Use skeleton loaders (soft pulsing neutral blocks) instead of spinners.
 - In collapsed state, show only:
@@ -100,11 +100,11 @@ Icon-based filters that act as viewing lenses.
 **Requirements**
 
 - Lens categories:
-  - **Omnis** (All)
-  - **Opus** (Work)
-  - **Fiscus** (Finance)
-  - **Vita** (Life)
-  - **Systema** (System)
+  - **All**
+  - **Work**
+  - **Finance**
+  - **Life**
+  - **System**
 - Lens switching must be smooth and correctly filter the stream.
 - Lens icons should use soft category color accents (fully activated only when selected).
 
